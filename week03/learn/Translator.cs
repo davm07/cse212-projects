@@ -16,7 +16,7 @@ public class Translator
     /// <summary>
     /// Add the translation from 'from_word' to 'to_word'
     /// For example, in a english to german dictionary:
-    /// 
+    ///
     /// my_translator.AddWord("book","buch")
     /// </summary>
     /// <param name="fromWord">The word to translate from</param>
@@ -25,6 +25,7 @@ public class Translator
     public void AddWord(string fromWord, string toWord)
     {
         // ADD YOUR CODE HERE
+        _words.Add(fromWord, toWord);
     }
 
     /// <summary>
@@ -35,6 +36,13 @@ public class Translator
     public string Translate(string fromWord)
     {
         // ADD YOUR CODE HERE
-        return "";
+        if (_words.ContainsKey(fromWord))
+        {
+            return _words[fromWord];
+        }
+        else
+        {
+            return "???";
+        }
     }
 }
